@@ -1,0 +1,3 @@
+virtualenv flask_venv
+flask_venv\Scripts\activate
+python -m install Flask

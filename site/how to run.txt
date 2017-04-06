@@ -1,0 +1,5 @@
+HOW TO RUN
+-----------------------
+flask_venv\Scripts\activate
+python app.py
+
