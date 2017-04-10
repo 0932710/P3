@@ -11,8 +11,12 @@ def index():
 def maps():
   return render_template("upload.html")
 
+@app.route("/about")
+def about():
+  return render_template("about.html")
+
 @app.route("/css")
 def css():
-  return render_template("test.css")
+  return render_template("style.css")
 
 app.run()
