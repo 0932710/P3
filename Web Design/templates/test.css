@@ -20,6 +20,16 @@ img.invert {
   margin: 0 auto;
 }
 
+div.map {
+  padding: 1px;
+  padding-bottom: 45px;
+  background-color: #9FC2CA;
+}
+
+div.map h1 {
+  color: #233A40;
+}
+
 .logo {
   float: left;
   padding: 10px;
@@ -82,6 +92,10 @@ nav li a:hover {
   color: #DBF8FE;
 }
 
+nav li a.current:hover {
+  color: #5DBCD2;
+}
+
 nav li a::after {
   position: relative;
   top: 16px;
@@ -93,6 +107,10 @@ nav li a::after {
   -webkit-transition: all 250ms ease-in-out;
   -moz-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+}
+
+nav li a.current::after {
+  background-color: #5DBCD2;
 }
 
 nav li a:hover::after {
