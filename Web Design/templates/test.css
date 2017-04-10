@@ -52,6 +52,18 @@ header .container {
   margin: 0 auto;
 }
 
+footer {
+  clear: both;
+  background-color: #DBF8FE;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+
+footer p{
+  color: #5DBCD2;
+}
+
 nav {
   float: left;
 }
@@ -120,14 +132,24 @@ div.map h1 {
   color: #233A40;
 }
 
+div.plot {
+  width: 80%;
+  margin-left: 10%;
+}
+
 div.plot h1{
   color: #9FC2CA;
 }
 
 div.plot .container {
-  width: 40%;
+  width: 50%;
   float: left;
-  background-color: red;
+  margin-bottom: 50px;
+}
+
+div.plot iframe{
+  width: 80%;
+  height: 400px;
 }
 
 @media screen and (max-width: 480px) {
@@ -139,4 +161,9 @@ div.plot .container {
     width: auto;
     float: none;
   }
+
+  div.plot iframe{
+  width: 100%;
+  height: 300px;
+ }
 }
