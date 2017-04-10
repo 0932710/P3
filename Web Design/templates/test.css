@@ -13,21 +13,13 @@ p, div {
 img.invert {
   -webkit-filter: invert(100%);
   filter: invert(100%);
+  max-width: auto;
+  height: 25px;
 }
 
 .container {
   width: 80%;
   margin: 0 auto;
-}
-
-div.map {
-  padding: 1px;
-  padding-bottom: 45px;
-  background-color: #9FC2CA;
-}
-
-div.map h1 {
-  color: #233A40;
 }
 
 .logo {
@@ -116,4 +108,35 @@ nav li a.current::after {
 nav li a:hover::after {
   top: 10px;
   height: 6px;
+}
+
+div.map {
+  padding: 1px;
+  padding-bottom: 45px;
+  background-color: #9FC2CA;
+}
+
+div.map h1 {
+  color: #233A40;
+}
+
+div.plot h1{
+  color: #9FC2CA;
+}
+
+div.plot .container {
+  width: 40%;
+  float: left;
+  background-color: red;
+}
+
+@media screen and (max-width: 480px) {
+  .github {
+    display: none;
+  }
+
+  div.plot .container {
+    width: auto;
+    float: none;
+  }
 }
