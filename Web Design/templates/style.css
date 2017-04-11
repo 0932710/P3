@@ -3,10 +3,17 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Raleway', sans-serif;
 }
-p, div {
+
+p,
+div {
   font-family: 'Raleway', sans-serif;
 }
 
@@ -43,9 +50,9 @@ img.invert {
 
 header {
   background: #233A40;
-} 
+}
 
-header::after{
+header::after {
   content: "";
   display: table;
   clear: both;
@@ -64,7 +71,7 @@ footer {
   padding: 10px;
 }
 
-footer p{
+footer p {
   color: #5DBCD2;
 }
 
@@ -141,7 +148,7 @@ div.plot {
   margin-left: 10%;
 }
 
-div.plot h1{
+div.plot h1 {
   color: #9FC2CA;
 }
 
@@ -151,7 +158,7 @@ div.plot .container {
   margin-bottom: 50px;
 }
 
-div.plot iframe{
+div.plot iframe {
   width: 80%;
   height: 400px;
 }
@@ -160,32 +167,25 @@ div.plot iframe{
   .github {
     display: none;
   }
-
-
-
   div.plot .container {
     width: auto;
     float: none;
   }
-
   nav li {
     padding: 0px;
   }
-
   nav li a::after {
     top: 0px;
     width: 0%;
     height: 2px;
   }
-
   nav li a:hover::after {
     top: 0px;
     width: 100%;
     height: 2px;
   }
-
-  div.plot iframe{
-  width: 100%;
-  height: 300px;
- }
+  div.plot iframe {
+    width: 100%;
+    height: 300px;
+  }
 }

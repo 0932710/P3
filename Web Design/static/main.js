@@ -1,4 +1,3 @@
-
 function createMap() {
     var map = L.map('map');
     //add a tile layer to add to our map, in this case it's the 'standard' OpenStreetMap.org tile server
