@@ -22,6 +22,10 @@ img.invert {
   margin: 0 auto;
 }
 
+.container p {
+  color: #233A40;
+}
+
 .logo {
   float: left;
   padding: 10px;
