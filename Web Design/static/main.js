@@ -6,6 +6,8 @@ function createMap() {
         attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
         maxZoom: 18
     }).addTo(map);
+    
+    L.marker([51.917202, 4.483986]).addTo(map)
 
     map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
 
