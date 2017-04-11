@@ -168,6 +168,10 @@ div.plot iframe{
     float: none;
   }
 
+  nav li {
+    padding: 0px;
+  }
+
   nav li a::after {
     top: 0px;
     width: 0%;
