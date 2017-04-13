@@ -11,12 +11,6 @@ function createMap() {
     map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
 
     var rotterdam = new L.LatLng(51.917202, 4.483986); // geographical point (longitude and latitude)
-
-    var heat = L.heatLayer([
-            [51.9174402, 4.4828688, 0.5]
-            [51.9174402, 4.4828688, 0.2]
-    ], {radius: 25}).addTo(map);
-
     map.setView(rotterdam, 13);
 }
 
