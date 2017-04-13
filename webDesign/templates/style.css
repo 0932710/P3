@@ -164,6 +164,9 @@ div.plot iframe {
 }
 
 @media screen and (max-width: 480px) {
+  .logo {
+    margin-right: 20%; 
+  }
   .github {
     display: none;
   }
