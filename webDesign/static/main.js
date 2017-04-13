@@ -12,6 +12,11 @@ function createMap() {
 
     var rotterdam = new L.LatLng(51.917202, 4.483986); // geographical point (longitude and latitude)
     map.setView(rotterdam, 13);
+
+    var heat = L.heatLayer([
+            [51.9174402,4.4828688,0.5],
+            [51.9173807,4.4817315,0.5]
+    ], {radius: 100}).addTo(map)
 }
 
 createMap();
