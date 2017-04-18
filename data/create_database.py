@@ -1,8 +1,5 @@
 from sqlalchemy import *
-from convert_politie import *
-from convert_straatroof import *
 import datetime
-
 
 def politiesql(stations):
     db = create_engine('sqlite:///Opendata.db')
@@ -120,6 +117,8 @@ def straatroofsql(roofovervallen):
                   )
 
 if __name__ == '__main__':
+    from convert_politie import *
+    from convert_straatroof import *
     def politie():
         xml = 'bureaus.xml'
         stations = xmlConvert(xml)
@@ -136,4 +135,4 @@ if __name__ == '__main__':
         roofje_array = {roofje}
         straatroofsql(roofje_array)
 
-    straatroof()
+    politie()
