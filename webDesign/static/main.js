@@ -1,18 +1,17 @@
 window.onload = function () {
     var testData = {
-        max: 8,
         data: [{
             lat: 51.9232176,
             lng: 4.47922600000004,
-            count: 8
+            count: 1
         }, {
             lat: 51.947512,
             lng: 4.548183999999992,
-            count: 8
+            count: 1
         }, {
             lat: 51.917202,
             lng: 4.483986,
-            count: 8
+            count: 1
         }]
     };
     var baseLayer = L.tileLayer(
