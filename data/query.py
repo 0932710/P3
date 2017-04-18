@@ -1,13 +1,20 @@
 from sqlalchemy import *
 
-def query(parameter):
+def query(s):
     db = create_engine('sqlite:///Opendata.db')
-    s = (parameter)
     conn = db.connect()
     return conn.execute(s)
 
 if __name__ == '__main__':
-    result = query("SELECT * FROM Straatroven")
+    def selectpolicecoords():
+        result = query("SELECT longitude, latitude FROM police_stations")
+        for i in result:
+            print(i)
 
-    for i in result:
-        print(i)
+    def selectroofcoords():
+        result = query("SELECT longitude, latitude FROM Straatroven")
+        for i in result:
+            print(i)
+
+    #selectpolicecoords()
+    selectroofcoords()
