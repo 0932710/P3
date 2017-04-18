@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # coding=utf-8
+=======
+# -*- coding: utf-8 -*-
+
+>>>>>>> e599d1d49325fa64cb76c3db87e3d3933e7e4c5f
 import xml.etree.ElementTree as ET
 
 class Bureau:
