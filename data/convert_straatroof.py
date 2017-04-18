@@ -192,7 +192,7 @@ def csvConvert(roof_csv):
     print("Alle roven zijn geschraapt!")
     return straatroof_array
 
-def Converter(roof_csv, adres_csv):
+def straatroofConverter(roof_csv, adres_csv):
     straatroof_array = csvConvert(roof_csv)
     return setCoords(straatroof_array, adres_csv)
 
