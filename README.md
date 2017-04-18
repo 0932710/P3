@@ -1,3 +1,3 @@
 ### Project 3
 
-https://github.com/Leaflet/Leaflet.heat
+https://github.com/pa7/heatmap.js
