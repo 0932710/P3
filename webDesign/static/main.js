@@ -18,7 +18,6 @@ function createMap() {
     for (i = 0; i < politieList.length; i++) {
         latlng = politieList[i]
         L.marker(latlng,{icon: politieIcon}).addTo(map)
-        latlng = politieList[i].push(0.5)
     }
 
     // Don't show the 'Powered by Leaflet' text. Attribution overload
