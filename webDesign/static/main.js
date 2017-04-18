@@ -22,8 +22,16 @@ window.onload = function () {
     );
     var cfg = {
         // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+        gradient: {
+            // enter n keys between 0 and 1 here
+            // for gradient color customization
+            '.5': 'blue',
+            '.8': 'blue',
+            '.95': 'blue'
+        },
+        "blur": 0,
         "radius": 0.01,
-        "maxOpacity": .8,
+        "maxOpacity": .2,
         // scales the radius based on map zoom
         "scaleRadius": true,
         // if set to false the heatmap uses the global maximum for colorization
