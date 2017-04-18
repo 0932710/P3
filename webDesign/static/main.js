@@ -27,24 +27,25 @@ function createMap() {
         }).addTo(map)
     }
 
+    for (i = 0; i < politieList.length; i++) {
+        politieHeat[i].push(0.5)
+    }
+
+    var heat = L.heatLayer(politieHeat, {
+        minOpacity: 0.2,
+        radius: 100,
+        blur: 0.1,
+        gradient: {
+            0.5: "#07AED8"
+        }
+    }).addTo(map)
+
     // Don't show the 'Powered by Leaflet' text. Attribution overload
     map.attributionControl.setPrefix('');
 
     // Geographical point (longitude and latitude)
     var rotterdam = new L.LatLng(51.917202, 4.483986);
     map.setView(rotterdam, 13);
-
-    for (i = 0; i < politieList.length; i++) {
-        politieHeat[i].push(0.5)
-    }
-
-    var heat = L.heatLayer(politieHeat, {
-        radius: 100,
-        gradient: {
-            0.5: 'blue'
-        }
-    }).addTo(map)
-
 }
 
 createMap();
