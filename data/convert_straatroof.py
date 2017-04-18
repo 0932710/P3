@@ -205,7 +205,7 @@ if __name__ == '__main__':
 
     def test1():
         start = time.time()
-        roof_array = Converter(roof_csv, adres_csv)
+        roof_array = straatroofConverter(roof_csv, adres_csv)
         print(len(roof_array))
         print("total time taken this loop: ", time.time() - start)
 
