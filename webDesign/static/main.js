@@ -7,7 +7,7 @@ function createMap() {
     }).addTo(map);
 
     var politieIcon = L.icon({
-        iconUrl: '/static/politie.png',
+        iconUrl: '/static/img/politie.png',
         iconSize: [60,60]
     })
 
