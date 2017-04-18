@@ -31,7 +31,7 @@ window.onload = function () {
         },
         "blur": 0,
         "radius": 0.01,
-        "maxOpacity": .6,
+        "maxOpacity": .2,
         // scales the radius based on map zoom
         "scaleRadius": true,
         // if set to false the heatmap uses the global maximum for colorization
