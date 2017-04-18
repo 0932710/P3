@@ -1,6 +1,5 @@
 import xml.etree.ElementTree as ET
 
-
 class Bureau:
     def __init__(self, naam, adres, lat, lng):
         self.naam = naam
