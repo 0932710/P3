@@ -160,7 +160,7 @@ def csvConvert(roof_csv):
     last_init = 19
     plaats = "ROTTERDAM"
 
-    with open(roof_csv, newline='') as csvfile:
+    with open(roof_csv, newline='', encoding='cp850' ) as csvfile:
         reader = csv.reader(csvfile, delimiter=',') #, quotechar='|')
         for row in reader:
             case = ""
