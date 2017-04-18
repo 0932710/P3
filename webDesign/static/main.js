@@ -8,16 +8,23 @@ function createMap() {
 
     var politieIcon = L.icon({
         iconUrl: '/static/img/politie.png',
-        iconSize: [60,60]
+        iconSize: [60, 60]
     })
 
     // Create list with latlong coords
-    politieList = [[51.9232176,4.47922600000004], [51.947512,4.548183999999992], [51.917202, 4.483986]]
+    politieList = [
+        [51.9232176, 4.47922600000004],
+        [51.947512, 4.548183999999992],
+        [51.917202, 4.483986]
+    ]
+    politieHeat = politieList
 
     // For each latlong record, add marker to map
     for (i = 0; i < politieList.length; i++) {
         latlng = politieList[i]
-        L.marker(latlng,{icon: politieIcon}).addTo(map)
+        L.marker(latlng, {
+            icon: politieIcon
+        }).addTo(map)
     }
 
     // Don't show the 'Powered by Leaflet' text. Attribution overload
@@ -28,10 +35,15 @@ function createMap() {
     map.setView(rotterdam, 13);
 
     for (i = 0; i < politieList.length; i++) {
-        latlng = politieList[i]
-        L.heatLayer(([latlng]), {radius: 100, gradient: {0.5: 'blue'}}).addTo(map)
+        politieHeat[i].push(0.5)
     }
 
+    var heat = L.heatLayer(politieHeat, {
+        radius: 100,
+        gradient: {
+            0.5: 'blue'
+        }
+    }).addTo(map)
 
 }
 
