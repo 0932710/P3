@@ -2,16 +2,13 @@ window.onload = function () {
     var testData = {
         data: [{
             lat: 51.9232176,
-            lng: 4.47922600000004,
-            count: 1
+            lng: 4.47922600000004
         }, {
             lat: 51.947512,
-            lng: 4.548183999999992,
-            count: 1
+            lng: 4.548183999999992
         }, {
             lat: 51.917202,
-            lng: 4.483986,
-            count: 1
+            lng: 4.483986
         }]
     };
     var baseLayer = L.tileLayer(
@@ -25,11 +22,11 @@ window.onload = function () {
         gradient: {
             // enter n keys between 0 and 1 here
             // for gradient color customization
-            '.5': 'blue',
-            '.8': 'blue',
+            '.5': '#8080FF',
+            '.8': '#2020FF',
             '.95': 'blue'
         },
-        "blur": 0,
+        "blur": 0.5,
         "radius": 0.01,
         "maxOpacity": .2,
         // scales the radius based on map zoom
@@ -42,8 +39,6 @@ window.onload = function () {
         latField: 'lat',
         // which field name in your data represents the longitude - default "lng"
         lngField: 'lng',
-        // which field name in your data represents the data value - default "value"
-        valueField: 'count'
     };
     var heatmapLayer = new HeatmapOverlay(cfg);
     var map = new L.Map('map', {
