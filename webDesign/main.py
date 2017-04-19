@@ -20,18 +20,16 @@ def map():
 
 
 def politie_map():
-    latlong = []
+    coordslist = []
     pmapsql = query(
-        "SELECT latitude, longitude"
-        "FROM police_stations"
+        "SELECT latitude, longitude "
+        "FROM police_stations",
         "sqlite:///data/Opendata.db")
     for i in pmapsql:
         if (i.latitude is None) or (i.longitude is None):
             continue
-        pdict = {'coordinates': [i.latitude, i.longitude]}
-        latlong.append(pdict)
-    retDict = {'geometry': latlong}
-    return retDict
+        coordslist.append([i.latitude, i.longitude])
+    return coordslist
 
 
 def plot1():

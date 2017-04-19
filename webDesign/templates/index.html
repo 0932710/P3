@@ -44,14 +44,11 @@
   <footer>
     <p>Project 3 - Groep 1</p>
   </footer>
-  <script src="./static/leaflet/politieData.js"></script>
-  <script src="./static/leaflet/straatrovenData.js"></script>
   <script src="./static/leaflet/leaflet.js"></script>
   <script src="./static/leaflet/heatmap.js"></script>
   <script src="./static/leaflet/leaflet-heatmap.js"></script>
   <script src="./static/main.js"></script>
-  <script type="text/javascript"> heatmap({{ map_roofdata | tojson | safe }})</script>
-  <script type="text/javascript"> heatmap({{ map_politiedata | tojson | safe }})</script>
+  <script type="text/javascript"> main_map({{ map_roofdata | tojson | safe }}, {{ map_politiedata | tojson | safe }})</script>
   
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="./static/plot/plot.js"></script>

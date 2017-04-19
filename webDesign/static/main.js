@@ -1,4 +1,4 @@
-function heatmap(roofData) {
+function main_map(roofData, politieList) {
     var baseLayer = L.tileLayer(
         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
@@ -42,14 +42,14 @@ function heatmap(roofData) {
         iconSize: [60, 60]
     })
 
-    var politieLayer = L.geoJSON(<politiecoordinatenvariabele>, {icon: politieIcon}).addTo(map)
+    //var politieLayer = L.geoJSON(politieData, {icon: politieIcon}).addTo(map)
 
-/*    // Create list with latlong coords
-    politieList = [
+    // Create list with latlong coords
+    /*politieList = [
         [51.9232176, 4.47922600000004],
         [51.947512, 4.548183999999992],
         [51.917202, 4.483986]
-    ]
+    ]*/
 
     // For each latlong record, add marker to map
     for (i = 0; i < politieList.length; i++) {
@@ -58,7 +58,7 @@ function heatmap(roofData) {
             icon: politieIcon
         }).addTo(map)
     }
-*/
+
     // Don't show the 'Powered by Leaflet' text. Attribution overload
     map.attributionControl.setPrefix('');
 
