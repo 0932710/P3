@@ -8,12 +8,12 @@ def query(s, db):
 
 if __name__ == '__main__':
     def selectpolicecoords():
-        result = query("SELECT longitude, latitude FROM police_stations", 'sqlite:///data/Opendata.db')
+        result = query("SELECT longitude, latitude FROM police_stations", "sqlite:///data/Opendata.db")
         for i in result:
             print(i)
 
     def selectroofcoords():
-        result = query("SELECT longitude, latitude FROM Straatroven", 'sqlite:///data/Opendata.db')
+        result = query("SELECT longitude, latitude FROM Straatroven", "sqlite:///data/Opendata.db")
         for i in result:
             print(i)
 

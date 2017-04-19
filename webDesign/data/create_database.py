@@ -2,7 +2,7 @@ from sqlalchemy import *
 import datetime
 
 def politiesql(stations):
-    db = create_engine('sqlite:///Opendata.db')
+    db = create_engine('sqlite:///data/Opendata.db')
     db.echo = True  # Try changing this to True and see what happens
     metadata = MetaData(db)
 
@@ -23,7 +23,7 @@ def politiesql(stations):
         i.execute(naam=station.naam, adres=station.adres, latitude=station.latitude, longitude=station.longitude)
 
 def straatroofsql(roofovervallen):
-    db = create_engine('sqlite:///Opendata.db')
+    db = create_engine('sqlite:///data/Opendata.db')
     db.echo = True  # Try changing this to True and see what happens
     metadata = MetaData(db)
 
