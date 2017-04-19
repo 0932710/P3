@@ -1,16 +1,5 @@
 window.onload = function () {
-    var testData = {
-        data: [{
-            lat: 51.9232176,
-            lng: 4.47922600000004
-        }, {
-            lat: 51.947512,
-            lng: 4.548183999999992
-        }, {
-            lat: 51.917202,
-            lng: 4.483986
-        }]
-    };
+    var testData = {'data': [{'lat': 51.8838471, 'lng': 4.5451158}, {'lat': 51.8838471, 'lng': 4.5451158}, {'lat': 51.8838471, 'lng': 4.5451158}, {'lat': 51.8838471, 'lng': 4.5451158}]};
     var baseLayer = L.tileLayer(
         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
