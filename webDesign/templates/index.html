@@ -4,6 +4,7 @@
 <head>
   <title>Project 3 - Home</title>
   <link rel="stylesheet" href="./static/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="./static/plot/plot.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="../css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,7 @@
     </div>
   </div>
   <div class="plot">
-    <div class="container">
+    <div class="container" id="plot1">
       <h1>Plot 1</h1>
       <iframe src="https://www.openstreetmap.org/export/embed.html" frameborder="0"></iframe>
     </div>
@@ -47,6 +48,13 @@
   <script src="./static/leaflet/heatmap.js"></script>
   <script src="./static/leaflet/leaflet-heatmap.js"></script>
   <script src="./static/main.js"></script>
+  
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="./static/plot/plot1.js"></script>
+  <script type="text/javascript"> plot1({{ plot1_json | tojson | safe }})</script
+  <script src="./static/plot/plot2.js"></script>
+  
+
 </body>
 
 </html>
