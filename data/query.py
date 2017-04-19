@@ -3,7 +3,8 @@ from sqlalchemy import *
 def query(s):
     db = create_engine('sqlite:///Opendata.db')
     conn = db.connect()
-    return conn.execute(s)
+    result = conn.execute(s)
+    return result
 
 if __name__ == '__main__':
     def selectpolicecoords():

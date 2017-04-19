@@ -3,9 +3,7 @@ import datetime
 
 def politiesql(stations):
     db = create_engine('sqlite:///Opendata.db')
-
     db.echo = True  # Try changing this to True and see what happens
-
     metadata = MetaData(db)
 
     Politie = Table('police_stations', metadata,
