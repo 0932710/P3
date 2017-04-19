@@ -144,8 +144,8 @@ div.map h1 {
 }
 
 div.plot {
-  width: 80%;
-  margin-left: 10%;
+  width: 960px;
+  margin: auto;
 }
 
 div.plot h1 {

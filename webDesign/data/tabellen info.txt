@@ -1,0 +1,44 @@
+table: Police Stations
+- ID (sql)
+- name
+- address
+- zip_code
+- place
+- lang
+- lat
+
+table: Straatroven
+- voorval_nr
+- registratiedatum
+- maandnaam
+- gem_week
+- gem_datum
+- dagsoort 
+- dagdeel
+- begindatum
+- begintijd
+- einddatum
+- eindtijd
+- plaats
+- straat
+- huisnummer
+- toevoeging
+- postcode
+- soort locatie
+- poging tot
+- opgelost
+- omgeving
+- sexe_so
+- leeftijdcat.
+- buit
+- wapen
+- wapen_soort
+- wapen_naam
+- letsel_so
+- geweld
+- activiteit
+- omschrijving
+- ddr_aantal
+- voertuig
+- voertuig_soort
+- merk_gsm
