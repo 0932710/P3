@@ -4,9 +4,18 @@ from data.query import *
 app = Flask(__name__)
 
 def map():
-    mapssql = query(
-        "SELECT latitude"
-    )
+    latlong = []
+    mapsql = query(
+        "SELECT latitude, longitude "
+        "FROM Straatroven",
+        "sqlite:///data/Opendata.db")
+    for i in mapsql:
+        if (i.latitude is None) or (i.longitude is None):
+            continue
+        dict = {'lat': i.latitude, 'lng': i.longitude}
+        latlong.append(dict)
+    retDict = {'data': latlong}
+    return retDict
 
 def plot1():
     plot1sql = query(
@@ -47,7 +56,7 @@ def plot2():
 
 @app.route("/")
 def index():
-    return render_template("index.html", plot1_json = plot1(), plot2_json = plot2())
+    return render_template("index.html", plot1_json = plot1(), plot2_json = plot2(), map_roofdata = map())
 
 @app.route("/upload")
 def maps():
