@@ -14,7 +14,8 @@ def plot1():
         "FROM(SELECT begindatum, maandnaam"
         "     FROM Straatroven)"
         "GROUP BY jaar, maand",
-        'sqlite:///data/Opendata.db')
+        "sqlite:///data/Opendata.db"
+    )
 
     list_dict = []
     for i in plot1sql:
