@@ -1,5 +1,6 @@
 .axis {
-	  font: 10px sans-serif;
+	  font: 11px sans-serif;
+		font-weight: normal;
 	}
 
 .axis path,
