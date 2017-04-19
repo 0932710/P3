@@ -14,7 +14,7 @@ if __name__ == '__main__':
             print(i)
 
     def selectroofcoords():
-        result = query("SELECT voorval_nr, longitude, latitude FROM Straatroven", 'sqlite:///Opendata.db')
+        result = query("SELECT latitude, longitude FROM Straatroven", 'sqlite:///Opendata.db')
         resultl = []
         for i in result:
             resultl.append(i)
@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
         testData["data"] = resultList
 
-        straatrovenData = open("straatrovenData.txt", "w")
-        straatrovenData.write(str(testData))
+        straatrovenData = open("../webDesign/static/leaflet/straatrovenData.js", "w")
+        straatrovenData.write("var testData = " + str(testData))
         straatrovenData.close()
 
     # selectpolicecoords()
