@@ -4,9 +4,6 @@ from data.query import *
 app = Flask(__name__)
 
 def plot1():
-    #result = [{'date':'2013-01', 'value':53}, {'date':'2013-02', 'value':22}]
-    #return result
-
     plot1sql = query(
         "SELECT strftime('%Y', begindatum) AS jaar, strftime('%m', begindatum) AS maand, maandnaam, count(*) AS count_1 "
         "FROM(SELECT begindatum, maandnaam"
@@ -16,20 +13,35 @@ def plot1():
 
     list_dict = []
     for i in plot1sql:
-        print(i)
         dict = {'date': i.maandnaam + "-" + i.jaar, 'value': i.count_1}
         list_dict.append(dict)
 
     return list_dict
 
-
 def plot2():
-    pass
+    list_dict = []
 
+    dLast = 0
+    d = 50
+    while d <= 3000:
+        plot2sql = query(
+            "SELECT count(*) AS count_1 "
+            "FROM Straatroven "
+            "WHERE distance_pol > {0} AND distance_pol < {1}".format(dLast, d),
+            "sqlite:///data/Opendata.db"
+        )
+        for i in plot2sql:
+            print(d, i.count_1)
+            dict = {'date': str(dLast) + "-" + str(d), 'value': i.count_1}
+            list_dict.append(dict)
+        dLast = d
+        d = d + 50
+
+    return list_dict
 
 @app.route("/")
 def index():
-    return render_template("index.html", plot1_json = plot1())
+    return render_template("index.html", plot1_json = plot1(), plot2_json = plot2())
 
 @app.route("/upload")
 def maps():

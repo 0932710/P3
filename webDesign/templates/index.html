@@ -31,16 +31,16 @@
       <div id="map" style="width:100%; height: 540px; border: 1px solid #AAA;"></div>
     </div>
   </div>
-  <div class="plot">
-    <div class="container" id="plot1">
-      <h1>Plot 1</h1>
-      <iframe src="https://www.openstreetmap.org/export/embed.html" frameborder="0"></iframe>
+    <div class="container">
+      <div class="plot" id="plot1">
+        <h1>Plot 1</h1>
+      </div>
     </div>
-    <div class="container" align="right">
-      <h1 align="right">Plot 2</h1>
-      <iframe src="https://www.openstreetmap.org/export/embed.html" frameborder="0"></iframe>
+    <div class="container">
+      <div class="plot" id="plot2">
+        <h1 align="right">Plot 2</h1>
+      </div>
     </div>
-  </div>
   <footer>
     <p>Project 3 - Groep 1</p>
   </footer>
@@ -50,9 +50,9 @@
   <script src="./static/main.js"></script>
   
   <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="./static/plot/plot1.js"></script>
-  <script type="text/javascript"> plot1({{ plot1_json | tojson | safe }})</script
-  <script src="./static/plot/plot2.js"></script>
+  <script src="./static/plot/plot.js"></script>
+  <script type="text/javascript"> plot("#plot1", {{ plot1_json | tojson | safe }})</script>
+  <script type="text/javascript"> plot("#plot2", {{ plot2_json | tojson | safe }})</script>
   
 
 </body>

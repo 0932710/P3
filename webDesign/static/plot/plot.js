@@ -1,7 +1,7 @@
-function plot1 (data) {
+function plot (place, data) {
     var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
     // Parse the date / time
     //var	parseDate = d3.time.format('%Y-%m').parse;
@@ -20,7 +20,7 @@ function plot1 (data) {
         .orient("left")
         .ticks(10);
 
-    var svg = d3.select("#plot1").append("svg")
+    var svg = d3.select(place).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -71,7 +71,7 @@ function plot1 (data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Value ($)");
+        .text("Aantal straatroven");
 
     svg.selectAll("bar")
         .data(data)

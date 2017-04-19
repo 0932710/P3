@@ -1,17 +1,24 @@
 from data.query import *
 
+""""
+def plot2():
+    list_dict = []
 
-plot1sql = query(
-    "SELECT strftime('%Y', begindatum) AS jaar, strftime('%m', begindatum) AS maand, maandnaam, count(*) AS count_1 "
-    "FROM(SELECT begindatum, maandnaam"
-    "     FROM Straatroven)"
-    "GROUP BY jaar, maand",
-               'sqlite:///data/Opendata.db')
+    dLast = 0
+    d = 50
+    while d <= 3000:
+        plot2sql = query(
+            "SELECT count(*) AS count_1 "
+            "FROM Straatroven "
+            "WHERE distance_pol > {0} AND distance_pol < {1}".format(dLast, d),
+            "sqlite:///data/Opendata.db"
+        )
+        for i in plot2sql:
+            print(d, i.count_1)
+            dict = {'afstand': dLast + "-" + d, 'value': i.count_1}
+            list_dict.append(dict)
+        dLast = d
+        d = d + 50
 
-list_dict =[]
-for i in plot1sql:
-    print(i)
-    dict = {'date': i.maandnaam + "-" + i.jaar, 'value': i.count_1 }
-    list_dict.append(dict)
-
-return list_dict
+    return list_dict
+"""
