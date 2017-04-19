@@ -36,17 +36,15 @@ function heatmap(roofData) {
     });
     heatmapLayer.setData(roofData);
 
-    var politieLayer = L.geoJSON().addTo(map);
-    politieLayer.addData(politieData);
-
-    // Add a tile layer to add to our map, in this case it's the 'standard' OpenStreetMap.org tile server
-
+    // Change the marker on the map to the police logo
     var politieIcon = L.icon({
         iconUrl: '/static/img/politie.png',
         iconSize: [60, 60]
     })
 
-    // Create list with latlong coords
+    var politieLayer = L.geoJSON(<politiecoordinatenvariabele>, {icon: politieIcon}).addTo(map)
+
+/*    // Create list with latlong coords
     politieList = [
         [51.9232176, 4.47922600000004],
         [51.947512, 4.548183999999992],
@@ -60,6 +58,8 @@ function heatmap(roofData) {
             icon: politieIcon
         }).addTo(map)
     }
+*/
     // Don't show the 'Powered by Leaflet' text. Attribution overload
     map.attributionControl.setPrefix('');
+
 }
