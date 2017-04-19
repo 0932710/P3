@@ -3,6 +3,7 @@ from data.query import *
 
 app = Flask(__name__)
 
+
 def map():
     latlong = []
     mapsql = query(
@@ -16,6 +17,20 @@ def map():
         latlong.append(dict)
     retDict = {'data': latlong}
     return retDict
+
+
+def politie_map():
+    coordslist = []
+    pmapsql = query(
+        "SELECT latitude, longitude "
+        "FROM police_stations",
+        "sqlite:///data/Opendata.db")
+    for i in pmapsql:
+        if (i.latitude is None) or (i.longitude is None):
+            continue
+        coordslist.append([i.latitude, i.longitude])
+    return coordslist
+
 
 def plot1():
     plot1sql = query(
@@ -32,6 +47,7 @@ def plot1():
         list_dict.append(dict)
 
     return list_dict
+
 
 def plot2():
     list_dict = []
@@ -54,17 +70,21 @@ def plot2():
 
     return list_dict
 
+
 @app.route("/")
 def index():
-    return render_template("index.html", plot1_json = plot1(), plot2_json = plot2(), map_roofdata = map())
+    return render_template("index.html", plot1_json = plot1(), plot2_json = plot2(), map_roofdata = map(), map_politiedata = politie_map())
+
 
 @app.route("/upload")
 def maps():
   return render_template("upload.html")
 
+
 @app.route("/about")
 def about():
   return render_template("about.html")
+
 
 @app.route("/css")
 def css():
