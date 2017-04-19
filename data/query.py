@@ -20,15 +20,21 @@ if __name__ == '__main__':
             resultl.append(i)
 
         resultDict = {}
-        resultList = []
-        testData = {}
+        resultList = "["
+        testData = "{'data': "
 
         for x in range(len(resultl)):
             resultDict["lat"] = resultl[x][0]
             resultDict["lng"] = resultl[x][1]
-            resultList.append(resultDict)
+            if resultDict["lat"] != None or resultDict["lng"] != None:
+                resultList = resultList + str(resultDict)
+                if x < len(resultl) - 1:
+                    resultList = resultList + ", "
 
-        testData["data"] = resultList
+        resultList = resultList + "]" 
+
+        testData = testData + resultList
+        testData = testData + "}"
 
         straatrovenData = open("../webDesign/static/leaflet/straatrovenData.js", "w")
         straatrovenData.write("var testData = " + str(testData))
