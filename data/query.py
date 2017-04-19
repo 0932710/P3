@@ -58,7 +58,7 @@ if __name__ == '__main__':
         roofData = roofData + "}"
 
         straatrovenData = open("../webDesign/static/leaflet/straatrovenData.js", "w")
-        straatrovenData.write("var testData = " + str(roofData))
+        straatrovenData.write("var roofData = " + str(roofData))
         straatrovenData.close()
 
     # selectpolicecoords()
