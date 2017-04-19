@@ -34,7 +34,11 @@ window.onload = function () {
         zoom: 13,
         layers: [baseLayer, heatmapLayer]
     });
-    heatmapLayer.setData(testData);
+    heatmapLayer.setData(roofData);
+
+    var politieLayer = L.geoJSON().addTo(map);
+    politieLayer.addData(politieData);
+
     // Add a tile layer to add to our map, in this case it's the 'standard' OpenStreetMap.org tile server
 
     var politieIcon = L.icon({
