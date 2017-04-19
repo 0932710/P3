@@ -4,7 +4,9 @@ from data.query import *
 app = Flask(__name__)
 
 def map():
-    maps
+    mapssql = query(
+        "SELECT latitude"
+    )
 
 def plot1():
     plot1sql = query(
