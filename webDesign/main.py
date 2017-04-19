@@ -3,6 +3,9 @@ from data.query import *
 
 app = Flask(__name__)
 
+def map():
+    maps
+
 def plot1():
     plot1sql = query(
         "SELECT strftime('%Y', begindatum) AS jaar, strftime('%m', begindatum) AS maand, maandnaam, count(*) AS count_1 "
