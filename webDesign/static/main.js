@@ -22,13 +22,13 @@ window.onload = function () {
         gradient: {
             // enter n keys between 0 and 1 here
             // for gradient color customization
-            '.5': '#8080FF',
-            '.8': '#2020FF',
-            '.95': 'blue'
+            '.5': '#FF0000',
+            '.8': '#FF8000',
+            '.95': '#FFFF20'
         },
-        "blur": 0.5,
-        "radius": 0.01,
-        "maxOpacity": .2,
+        "radius": 0.0005,
+        "blur": 0.8,
+        "maxOpacity": 0.5,
         // scales the radius based on map zoom
         "scaleRadius": true,
         // if set to false the heatmap uses the global maximum for colorization
