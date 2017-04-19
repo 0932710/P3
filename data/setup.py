@@ -1,6 +1,7 @@
 from convert_politie import *
 from convert_straatroof import *
 from create_database import *
+from add_distance import *
 
 def politie(xml):
     #xml = 'bureaus.xml'
@@ -16,3 +17,4 @@ def straatroof(roof_csv, adres_csv):
 
 politie('bureaus.xml')
 straatroof('straatroof-2011.csv', 'rotterdam3031.csv')
+add_distance()
