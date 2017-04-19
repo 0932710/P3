@@ -5,7 +5,7 @@ def add_distance():
     roofq = query("SELECT voorval_nr, latitude, longitude FROM Straatroven")
 
     db = create_engine('sqlite:///Opendata.db')
-    db.echo = True  # Try changing this to True and see what happens
+    db.echo = True
     metadata = MetaData(db)
 
     db.connect()
@@ -19,7 +19,7 @@ def add_distance():
 
     distancearray = []
 
-    for r in roofq: #brace yourself for the dumbest piece of code ever, but hey, it works
+    for r in roofq:
         voorval_nr = r['voorval_nr']
         print(voorval_nr)
         rpoint = (r['latitude'], r['longitude'])

@@ -1,4 +1,5 @@
 function main_map(roofData, politieList) {
+    // Retrieve base layer of the map from openstreetmap.org
     var baseLayer = L.tileLayer(
         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
@@ -50,6 +51,7 @@ function main_map(roofData, politieList) {
     // For each latlong record, add marker to map
     for (i = 0; i < politieList.length; i++) {
         latlng = politieList[i]
+        // Add marker with latlng coordinates an custom icon
         L.marker(latlng, {
             icon: politieIcon
         }).addTo(map)
