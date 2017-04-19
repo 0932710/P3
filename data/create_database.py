@@ -72,11 +72,17 @@ def straatroofsql(roofovervallen):
 
     i = Straatroof.insert()
 
+    print("Amount of overvallen: " )
+    breaknr = 0
+    loopnr = 0
+
     for roof in roofovervallen:
         print(roof)
+        loopnr += 1
 
         if not hasattr(roof, 'voorval_nr'): #safe-fail
-            break
+            breaknr += 1
+            continue
 
         i.execute(voorval_nr=roof.voorval_nr,
                   regdatum=datetime.datetime.strptime(roof.regdatum, '%d/%m/%Y'),
@@ -116,6 +122,9 @@ def straatroofsql(roofovervallen):
                   longitude=roof.longitude
                   )
 
+    print("This many breaks: ", breaknr)
+    print("This many loops: ", loopnr)
+
 if __name__ == '__main__':
     from convert_politie import *
     from convert_straatroof import *
@@ -126,8 +135,9 @@ if __name__ == '__main__':
 
     def straatroofFull():
         roof_csv = 'straatroof-2011.csv'
-        adres_csv = 'countrywide/nl/countrywide.csv'
+        adres_csv = 'rotterdam3031.csv'
         roof_array = straatroofConverter(roof_csv, adres_csv)
+        print("Amount of overvallen: ", len(roof_array))
         straatroofsql(roof_array)
 
     def straatroof():
@@ -135,4 +145,4 @@ if __name__ == '__main__':
         roofje_array = {roofje}
         straatroofsql(roofje_array)
 
-    politie()
+    straatroofFull()

@@ -202,8 +202,7 @@ def straatroofConverter(roof_csv, adres_csv):
 
 if __name__ == '__main__':
     roof_csv = 'straatroof-2011.csv'
-    adres_csv = 'countrywide/nl/countrywide.csv'
-    #adres_csv = 'countrywide/nl/rotterdam3031.csv'
+    adres_csv = 'rotterdam3031.csv'
 
     def test1():
         start = time.time()
