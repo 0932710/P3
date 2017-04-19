@@ -14,7 +14,7 @@ function main_map(roofData, politieList) {
             '.8': '#FF8000',
             '.95': '#FFFF20'
         },
-        "radius": 0.0005,
+        "radius": 0.001,
         "blur": 0.8,
         "maxOpacity": 0.5,
         // scales the radius based on map zoom
@@ -28,10 +28,15 @@ function main_map(roofData, politieList) {
         // which field name in your data represents the longitude - default "lng"
         lngField: 'lng',
     };
+    // Create a new heatmapLayer which can later be used with additional configuration
     var heatmapLayer = new HeatmapOverlay(cfg);
+    // Place the empty map of Rotterdam in the application
     var map = new L.Map('map', {
+        // Choose where the empty map has its' center located
         center: new L.LatLng(51.917202, 4.483986),
+        // Choose the zoom level of the empty map
         zoom: 13,
+        // Choose all layers to be added to the map
         layers: [baseLayer, heatmapLayer]
     });
     heatmapLayer.setData(roofData);
@@ -41,15 +46,6 @@ function main_map(roofData, politieList) {
         iconUrl: '/static/img/politie.png',
         iconSize: [60, 60]
     })
-
-    //var politieLayer = L.geoJSON(politieData, {icon: politieIcon}).addTo(map)
-
-    // Create list with latlong coords
-    /*politieList = [
-        [51.9232176, 4.47922600000004],
-        [51.947512, 4.548183999999992],
-        [51.917202, 4.483986]
-    ]*/
 
     // For each latlong record, add marker to map
     for (i = 0; i < politieList.length; i++) {
