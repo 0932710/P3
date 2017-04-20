@@ -1,11 +1,12 @@
 from sqlalchemy import *
 import datetime
 
+#Onderstaande geeft aan de SQLalchemy module waar de database uit op is gemaakt
 def politiesql(stations):
-    db = create_engine('sqlite:///data/Opendata.db')
-    db.echo = True  # Try changing this to True and see what happens
+    db = create_engine('sqlite:///data/Opendata.db') #Opent de database en geeft de locatie aan
+    db.echo = True  
     metadata = MetaData(db)
-
+    #Onderstaand tabel informatie over het tabel police_station
     Politie = Table('police_stations', metadata,
                     Column('id', Integer, primary_key=True),
                     Column('naam', String(40)),
@@ -18,8 +19,8 @@ def politiesql(stations):
     d.execute()
 
     i = Politie.insert()
-
-    for station in stations:
+    
+    for station in stations: #Deze statement injecteert de onderstaande waardes in de tabel police_station
         i.execute(naam=station.naam, adres=station.adres, latitude=station.latitude, longitude=station.longitude)
 
 def straatroofsql(roofovervallen):
@@ -81,7 +82,7 @@ def straatroofsql(roofovervallen):
         if not hasattr(roof, 'voorval_nr'): #safe-fail
             breaknr += 1
             continue
-
+        #onderstaande geeft de waardes/formating door die door de SQLite database gebruikt wordt
         i.execute(voorval_nr=roof.voorval_nr,
                   regdatum=datetime.datetime.strptime(roof.regdatum, '%d/%m/%Y'),
                   maandnaam=roof.maandnaam,
@@ -126,19 +127,19 @@ def straatroofsql(roofovervallen):
 if __name__ == '__main__':
     from convert_politie import *
     from convert_straatroof import *
-    def politie():
+    def politie(): #functie voor het aanroepen en uitvoeren van de SQL queries voor police_stations
         xml = 'bureaus.xml'
         stations = xmlConvert(xml)
         politiesql(stations)
 
-    def straatroofFull():
+    def straatroofFull(): #functie voor het aanroepen en uitvoeren van de SQL queries voor straatroven
         roof_csv = 'straatroof-2011.csv'
         adres_csv = 'rotterdam3031.csv'
         roof_array = straatroofConverter(roof_csv, adres_csv)
         print("Amount of overvallen: ", len(roof_array))
         straatroofsql(roof_array)
 
-    def straatroof():
+    def straatroof(): # testfunctie voor het aanroepen en uitvoeren van de SQL queries voor roofovervallen
         roofje = Straatroof('22233423534534523', '11/12/2012', 'November', '52', '11/12/2011', 'Woensdag', 'ochtend', '22/10/1993', '12:30', '11/11/2011', '22:20', 'ROTTERDAM', 'Coolsingel')
         roofje_array = {roofje}
         straatroofsql(roofje_array)
