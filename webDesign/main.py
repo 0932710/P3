@@ -28,13 +28,13 @@ def map():
 def politie_map():
     coordslist = []
     pmapsql = query(
-        "SELECT latitude, longitude "
+        "SELECT latitude, longitude, naam "
         "FROM police_stations",
         "sqlite:///data/Opendata.db")
     for i in pmapsql:   
         if (i.latitude is None) or (i.longitude is None):
             continue
-        coordslist.append([i.latitude, i.longitude])
+        coordslist.append([i.latitude, i.longitude, i.naam])
     return coordslist
 
 

@@ -14,11 +14,13 @@ function main_map(roofData, politieList) {
     pMarkerArray = []
     // For each latlong record, add marker to map
     for (i = 0; i < politieList.length; i++) {
-        latlng = politieList[i]
+        latlng = [politieList[i][0], politieList[i][1]]
+        naam = politieList[i][2]
+        //latlng = politieList[i]
         // Add marker with latlng coordinates an custom icon
         pMarker = L.marker(latlng, {
             icon: politieIcon
-        })
+        }).bindPopup(naam)
         pMarkerArray.push(pMarker)
     }
 
