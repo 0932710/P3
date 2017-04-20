@@ -54,7 +54,7 @@ function main_map(roofData, politieList) {
     var baseMaps = {}
 
     var overlayMaps = {
-        "Roven": heatmapLayer,
+        "Straatroven": heatmapLayer,
         "Politiebureaus": politie
     }
     // Place the empty map of Rotterdam in the application
