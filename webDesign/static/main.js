@@ -54,8 +54,8 @@ function main_map(roofData, politieList) {
     var baseMaps = {}
 
     var overlayMaps = {
-        "Heatmap": heatmapLayer,
-        "Politie": politie
+        "Roven": heatmapLayer,
+        "Politiebureaus": politie
     }
     // Place the empty map of Rotterdam in the application
     var map = new L.Map('map', {
