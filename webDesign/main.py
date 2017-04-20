@@ -31,7 +31,7 @@ def politie_map():
         "SELECT latitude, longitude "
         "FROM police_stations",
         "sqlite:///data/Opendata.db")
-    for i in pmapsql:
+    for i in pmapsql:   
         if (i.latitude is None) or (i.longitude is None):
             continue
         coordslist.append([i.latitude, i.longitude])

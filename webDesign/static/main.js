@@ -6,6 +6,23 @@ function main_map(roofData, politieList) {
             maxZoom: 18
         }
     );
+    // Change the marker on the map to the police logo
+    var politieIcon = L.icon({
+        iconUrl: '/static/img/politie.png',
+        iconSize: [60, 60]
+    })
+    pMarkerArray = []
+    // For each latlong record, add marker to map
+    for (i = 0; i < politieList.length; i++) {
+        latlng = politieList[i]
+        // Add marker with latlng coordinates an custom icon
+        pMarker = L.marker(latlng, {
+            icon: politieIcon
+        })
+        pMarkerArray.push(pMarker)
+    }
+
+    var politie = L.layerGroup(pMarkerArray)
     var cfg = {
         // radius should be small ONLY if scaleRadius is true (or small radius is intended)
         gradient: {
@@ -31,6 +48,13 @@ function main_map(roofData, politieList) {
     };
     // Create a new heatmapLayer which can later be used with additional configuration
     var heatmapLayer = new HeatmapOverlay(cfg);
+
+    var baseMaps = {}
+
+    var overlayMaps = {
+        "Heatmap": heatmapLayer,
+        "Politie": politie
+    }
     // Place the empty map of Rotterdam in the application
     var map = new L.Map('map', {
         // Choose where the empty map has its' center located
@@ -38,24 +62,11 @@ function main_map(roofData, politieList) {
         // Choose the zoom level of the empty map
         zoom: 13,
         // Choose all layers to be added to the map
-        layers: [baseLayer, heatmapLayer]
+        layers: [baseLayer, heatmapLayer, politie]
     });
     heatmapLayer.setData(roofData);
 
-    // Change the marker on the map to the police logo
-    var politieIcon = L.icon({
-        iconUrl: '/static/img/politie.png',
-        iconSize: [60, 60]
-    })
-
-    // For each latlong record, add marker to map
-    for (i = 0; i < politieList.length; i++) {
-        latlng = politieList[i]
-        // Add marker with latlng coordinates an custom icon
-        L.marker(latlng, {
-            icon: politieIcon
-        }).addTo(map)
-    }
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
 
     // Don't show the 'Powered by Leaflet' text. Attribution overload
     map.attributionControl.setPrefix('');
