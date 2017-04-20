@@ -1,12 +1,12 @@
 from sqlalchemy import *
 import datetime
 
-#Onderstaande geeft aan de SQLalchemy module waar de database uit op is gemaakt
+#The code below defines and creates a connection to the table police_stations
 def politiesql(stations):
-    db = create_engine('sqlite:///data/Opendata.db') #Opent de database en geeft de locatie aan
+    db = create_engine('sqlite:///data/Opendata.db') #This line opens the database and connect to the local SQLite database
     db.echo = True  
     metadata = MetaData(db)
-    #Onderstaand tabel informatie over het tabel police_station
+    #The code below defines the table format with the corresponding datatypes
     Politie = Table('police_stations', metadata,
                     Column('id', Integer, primary_key=True),
                     Column('naam', String(40)),
@@ -20,14 +20,14 @@ def politiesql(stations):
 
     i = Politie.insert()
     
-    for station in stations: #Deze statement injecteert de onderstaande waardes in de tabel police_station
+    for station in stations: #This statement provides the right information to inject the data
         i.execute(naam=station.naam, adres=station.adres, latitude=station.latitude, longitude=station.longitude)
 
 def straatroofsql(roofovervallen):
     db = create_engine('sqlite:///data/Opendata.db')
-    db.echo = True #geeft debugging melding weer bij het uitvoeren
+    db.echo = True #gives debugging information at execution
     metadata = MetaData(db)
-    #Het onderstaande geeft de opmaak van het tabel straatroven weer voor het uitvoeren van queries
+    # The code below defines and creates a connection to the table straat_roven
     Straatroof = Table('Straatroven', metadata,
                        Column('voorval_nr', String(20), primary_key=True),
                        Column('regdatum', Date),
@@ -82,7 +82,7 @@ def straatroofsql(roofovervallen):
         if not hasattr(roof, 'voorval_nr'): #safe-fail
             breaknr += 1
             continue
-        #onderstaande geeft de waardes/formating door die door de SQLite database gebruikt wordt
+        #The code below gives the right table formating for executing the SQL query
         i.execute(voorval_nr=roof.voorval_nr,
                   regdatum=datetime.datetime.strptime(roof.regdatum, '%d/%m/%Y'),
                   maandnaam=roof.maandnaam,
@@ -127,19 +127,19 @@ def straatroofsql(roofovervallen):
 if __name__ == '__main__':
     from convert_politie import *
     from convert_straatroof import *
-    def politie(): #functie voor het aanroepen en uitvoeren van de SQL queries voor police_stations
+    def politie(): #function for calling and execution of sql statements for the table police_stations
         xml = 'bureaus.xml'
         stations = xmlConvert(xml)
         politiesql(stations)
 
-    def straatroofFull(): #functie voor het aanroepen en uitvoeren van de SQL queries voor straatroven
+    def straatroofFull(): #function for calling and execution of sql statements for the table straatroven
         roof_csv = 'straatroof-2011.csv'
         adres_csv = 'rotterdam3031.csv'
         roof_array = straatroofConverter(roof_csv, adres_csv)
         print("Amount of overvallen: ", len(roof_array))
         straatroofsql(roof_array)
 
-    def straatroof(): # testfunctie voor het aanroepen en uitvoeren van de SQL queries voor roofovervallen
+    def straatroof(): # testfunction with dummiedata
         roofje = Straatroof('22233423534534523', '11/12/2012', 'November', '52', '11/12/2011', 'Woensdag', 'ochtend', '22/10/1993', '12:30', '11/11/2011', '22:20', 'ROTTERDAM', 'Coolsingel')
         roofje_array = {roofje}
         straatroofsql(roofje_array)
