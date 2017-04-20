@@ -25,9 +25,9 @@ def politiesql(stations):
 
 def straatroofsql(roofovervallen):
     db = create_engine('sqlite:///data/Opendata.db')
-    db.echo = True  # Try changing this to True and see what happens
+    db.echo = True #geeft debugging melding weer bij het uitvoeren
     metadata = MetaData(db)
-
+    #Het onderstaande geeft de opmaak van het tabel straatroven weer voor het uitvoeren van queries
     Straatroof = Table('Straatroven', metadata,
                        Column('voorval_nr', String(20), primary_key=True),
                        Column('regdatum', Date),
