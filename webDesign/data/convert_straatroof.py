@@ -122,11 +122,11 @@ def setCoords(straatroof_array, adres_csv):
                     row = row_pc[row_pc[adres_dict["huisnummer"]] == huisnummer + toevoeging]
                     if addCoords(roof, row):
                         continue
-                    if True:
-                        print(roof.voorval_nr + "postcode + nr: " + postcode + huisnummer)
-                        row = row_pc[row_pc[adres_dict["huisnummer"]] == huisnummer]
-                        if addCoords(roof, row):
-                            continue
+                if True:
+                    print(roof.voorval_nr + "postcode + nr: " + postcode + huisnummer)
+                    row = row_pc[row_pc[adres_dict["huisnummer"]] == huisnummer]
+                    if addCoords(roof, row):
+                        continue
             if True: #Get coords of postcode
                 print(roof.voorval_nr + "postcode: " + postcode)
                 addCoords(roof, row_pc)
