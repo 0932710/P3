@@ -2,7 +2,7 @@ from geopy.distance import vincenty
 from query import *
 
 def add_distance():
-    roofq = query("SELECT voorval_nr, latitude, longitude FROM Straatroven")
+    roofq = query("SELECT voorval_nr, latitude, longitude FROM Straatroven", "sqlite:///Opendata.db")
 
     db = create_engine('sqlite:///Opendata.db')
     db.echo = True
@@ -24,7 +24,7 @@ def add_distance():
         print(voorval_nr)
         rpoint = (r['latitude'], r['longitude'])
         distance = None
-        policeq = query("SELECT latitude, longitude FROM police_stations")
+        policeq = query("SELECT latitude, longitude FROM police_stations", "sqlite:///Opendata.db")
         for p in policeq:
             ppoint = (p['latitude'], p['longitude'])
             if distance is None:

@@ -24,7 +24,7 @@ def politiesql(stations):
         i.execute(naam=station.naam, adres=station.adres, latitude=station.latitude, longitude=station.longitude)
 
 def straatroofsql(roofovervallen):
-    db = create_engine('sqlite:///data/Opendata.db')
+    db = create_engine('sqlite:///Opendata.db')
     db.echo = True #gives debugging information at execution
     metadata = MetaData(db)
     # The code below defines and creates a connection to the table straat_roven
